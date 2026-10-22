@@ -1,0 +1,51 @@
+@import "tailwindcss";
+@import "@fontsource/ibm-plex-sans-thai/400.css";
+@import "@fontsource/ibm-plex-sans-thai/500.css";
+@import "@fontsource/ibm-plex-sans-thai/600.css";
+@import "@fontsource/ibm-plex-sans-thai/700.css";
+@import "uplot/dist/uPlot.min.css";
+
+@theme {
+  --font-sans: "IBM Plex Sans Thai", system-ui, sans-serif;
+  --color-brand-50: #f0fdfa;
+  --color-brand-100: #ccfbf1;
+  --color-brand-500: #14b8a6;
+  --color-brand-600: #0d9488;
+  --color-brand-700: #0f766e;
+  --color-brand-800: #115e59;
+}
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: #f8fafc;
+  color: #0f172a;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+.tabular { font-variant-numeric: tabular-nums; }
+
+@keyframes breathe {
+  from { transform: scale(0.82); opacity: 0.75; }
+  to { transform: scale(1.08); opacity: 1; }
+}
+@keyframes pop-in {
+  0% { transform: scale(0.6); opacity: 0; }
+  60% { transform: scale(1.06); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes twinkle {
+  from { opacity: 0.35; }
+  to { opacity: 1; }
+}
+.animate-breathe { animation: breathe 4s ease-in-out infinite alternate; }
+.animate-pop { animation: pop-in 0.45s ease-out both; }
+.animate-twinkle { animation: twinkle 2.4s ease-in-out infinite alternate; }
+
+.live-chart .u-legend { font-size: 12px; text-align: left; margin-top: 2px; }
+.live-chart .u-legend th { font-weight: 500; }
+.live-chart .u-legend .u-series > * { padding: 2px 6px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-breathe, .animate-pop, .animate-twinkle { animation: none; }
+}
